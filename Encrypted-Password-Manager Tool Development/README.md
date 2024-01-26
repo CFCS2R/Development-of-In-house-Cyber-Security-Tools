@@ -1,59 +1,31 @@
-# Encrypted Password Manager
+Here's a simple README file for your Password Encryption Manager application:
 
-## Overview
+---
 
-The Encrypted Password Manager is a Python-based program designed to securely store and manage your passwords. It employs strong encryption techniques to ensure the confidentiality of your sensitive information.
+# Password Encryption Manager
+
+The Password Encryption Manager is a Python application built using the Tkinter library for creating graphical user interfaces (GUI). It allows users to encrypt passwords using SHA-256 hashing algorithm.
 
 ## Features
 
-- **Strong Encryption**: Utilizes advanced encryption algorithms to safeguard your passwords.
-- **User-Friendly Interface**: Graphical User Interface for easy navigation and interaction.
-- **Password Generation**: Generate strong, unique passwords to enhance your account security.
-- **Data Integrity**: Ensures the integrity of stored data through checksums and error handling.
-- **Cross-Platform Compatibility**: Works seamlessly on various operating systems.
+- GUI for entering username and password.
+- Encrypts the password using SHA-256 hashing algorithm.
+- Provides an interface for users to easily encrypt passwords.
 
-## Getting Started
+## Requirements
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/kanojiashubham/encrypted-password-manager.git
-   ```
+- Python 3.x
+- Tkinter library
 
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd encrypted-password-manager
-   ```
+## Installation
 
-3. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Program**:
-   ```bash
-   python password_manager.py
-   ```
+1. Make sure you have Python installed on your system.
+2. Clone or download the repository to your local machine.
 
 ## Usage
 
-Follow the on-screen instructions to set up your master password and start managing your passwords securely.
+1. Run the `password_manager.py` file using Python.
+2. Enter the username and password you want to encrypt.
+3. Click on the "Encrypt" button.
+4. A messagebox will display the encrypted password along with the username.
 
-## Contributing
-
-We welcome contributions! If you'd like to contribute to the project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and submit a pull request.
-
-Please ensure your code follows the project's coding standards and includes relevant tests.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Special thanks to contributors and open-source libraries that made this project possible.
-
-Feel free to reach out if you have any questions or encounter issues. Happy password managing!
