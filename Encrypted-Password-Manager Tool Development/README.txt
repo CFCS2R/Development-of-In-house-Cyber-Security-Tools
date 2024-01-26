@@ -29,18 +29,3 @@ The Password Encryption Manager is a Python application built using the Tkinter 
 3. Click on the "Encrypt" button.
 4. A messagebox will display the encrypted password along with the username.
 
-## Screenshots
-
-(Optional: Include screenshots of the application in action)
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or create a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize the README file according to your preferences and project requirements.
