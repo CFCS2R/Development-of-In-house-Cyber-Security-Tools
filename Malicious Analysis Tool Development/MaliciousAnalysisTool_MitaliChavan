@@ -50,12 +50,7 @@ def process_packet(packet):
 def is_malicious(ip_address):
     """
     Check if an IP address is malicious.
-
-    Args:
-        ip_address (str): The IP address to check.
-
-    Returns:
-        bool: True if the IP is malicious, False otherwise.
+    Returns: True if the IP is malicious, False otherwise.
     """
     return ip_address in malicious_ips  # Check if the IP is in the set of malicious IPs
 
