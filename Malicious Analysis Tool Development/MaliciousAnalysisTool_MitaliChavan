@@ -9,15 +9,13 @@ malicious_ips_file = "malicious_ips.txt"  # Path to the file containing maliciou
 def read_malicious_ips():
     """
     Read malicious IPs from a file.
-
-    Returns:
-        set: A set of malicious IP addresses.
+    Returns: A set of malicious IP addresses.
     """
     try:
         with open(malicious_ips_file, "r") as file:
             return set(line.strip() for line in file)  # Create a set of malicious IPs from the file
     except FileNotFoundError:
-        print(f"Error: Malicious IPs file '{malicious_ips_file}' not found.")
+        print("Error: Malicious IPs file ",malicious_ips_file," not found.")
         return set()
 
 
@@ -38,9 +36,6 @@ def sniff_traffic():
 def process_packet(packet):
     """
     Process each captured packet.
-
-    Args:
-        packet: The captured packet.
     """
     if packet.haslayer(scapy.IP):  # Check if the packet contains IP layer
         ip_address = packet[scapy.IP].src  # Extract the source IP address from the packet
