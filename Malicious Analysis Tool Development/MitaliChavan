@@ -1,0 +1,76 @@
+import scapy.all as scapy  # Import Scapy for packet manipulation
+import time  # Module for handling time-related operations
+import os  # Module for interacting with the operating system
+
+log_file_path = "traffic_log.txt"  # Path to the log file
+malicious_ips_file = "malicious_ips.txt"  # Path to the file containing malicious IPs
+
+
+def read_malicious_ips():
+    """
+    Read malicious IPs from a file.
+
+    Returns:
+        set: A set of malicious IP addresses.
+    """
+    try:
+        with open(malicious_ips_file, "r") as file:
+            return set(line.strip() for line in file)  # Create a set of malicious IPs from the file
+    except FileNotFoundError:
+        print(f"Error: Malicious IPs file '{malicious_ips_file}' not found.")
+        return set()
+
+
+malicious_ips = read_malicious_ips()  # Initialize malicious IPs set by reading from the file
+
+
+def sniff_traffic():
+    """
+    Sniff network traffic using Scapy.
+    """
+    try:
+        # Define a callback function to be executed for each captured packet
+        scapy.sniff(prn=process_packet, store=0)
+    except KeyboardInterrupt:
+        pass
+
+
+def process_packet(packet):
+    """
+    Process each captured packet.
+
+    Args:
+        packet: The captured packet.
+    """
+    if packet.haslayer(scapy.IP):  # Check if the packet contains IP layer
+        ip_address = packet[scapy.IP].src  # Extract the source IP address from the packet
+        log_data = f"Packet Data: {packet.summary()}, Timestamp: {time.time()}\n"  # Create a log entry with packet data and timestamp
+        with open(log_file_path, "a") as log_file:  # Open the log file in append mode
+            log_file.write(log_data)  # Write the log entry to the file
+        if is_malicious(ip_address):
+            print(
+                f"Potential malicious activity detected: {log_data}")  # Print a message if potential malicious activity is detected
+
+
+def is_malicious(ip_address):
+    """
+    Check if an IP address is malicious.
+
+    Args:
+        ip_address (str): The IP address to check.
+
+    Returns:
+        bool: True if the IP is malicious, False otherwise.
+    """
+    return ip_address in malicious_ips  # Check if the IP is in the set of malicious IPs
+
+
+def main():
+    """
+    Main function to initiate packet capture.
+    """
+    sniff_traffic()
+
+
+if __name__ == '__main__':
+    main()  # Call the main function if the script is run directly
